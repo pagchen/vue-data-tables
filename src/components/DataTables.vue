@@ -205,7 +205,7 @@ export default {
 
       this.filters.forEach((filter) => {
         let val = filter.val
-        if (!val || val.lenght ===0) {
+        if (!val || val.length ===0) {
           return true
         }
 
