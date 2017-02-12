@@ -110,8 +110,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.0.25.0@css-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-739f43f1!./../../node_modules/.4.1.1@sass-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./DataTables.vue", function() {
-				var newContent = require("!!./../../node_modules/.0.25.0@css-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-739f43f1!./../../node_modules/.4.1.1@sass-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./DataTables.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-739f43f1!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DataTables.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-739f43f1!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DataTables.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -512,6 +512,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return {};
 	      }
 	    },
+	    actionsColTitle: {
+	      type: String,
+	      default: 'Actions'
+	    },
 	    checkboxFilterDef: {
 	      type: Object,
 	      default: function _default() {
@@ -611,7 +615,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      this.filters.forEach(function (filter) {
 	        var val = filter.val;
-	        if (!val) {
+	        if (!val || val.length === 0) {
 	          return true;
 	        }
 
@@ -626,7 +630,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          } else if (val instanceof Array && val.length > 0) {
 	            defaultFilterFunction = function defaultFilterFunction(el, filter) {
 	              return filter.props.some(function (prop) {
-	                return filter.value.indexOf(el[prop]) > -1;
+	                return filter.val.indexOf(el[prop]) > -1;
 	              });
 	            };
 	          }
@@ -1383,8 +1387,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.0.25.0@css-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-5ef578ba!./../../node_modules/.4.1.1@sass-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./ScCheckboxGroup.vue", function() {
-				var newContent = require("!!./../../node_modules/.0.25.0@css-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/style-rewriter.js?id=data-v-5ef578ba!./../../node_modules/.4.1.1@sass-loader/index.js!./../../node_modules/.10.3.0@vue-loader/lib/selector.js?type=styles&index=0!./ScCheckboxGroup.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-5ef578ba!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ScCheckboxGroup.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-5ef578ba!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ScCheckboxGroup.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1543,7 +1547,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._t("default"), (_vm.hasActionCol) ? _c('el-table-column', {
 	    attrs: {
-	      "label": "操作",
+	      "label": _vm.actionsColTitle,
 	      "prop": "innerRowActions",
 	      "min-width": _vm.actionColWidth
 	    },
