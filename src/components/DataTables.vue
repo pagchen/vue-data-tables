@@ -205,7 +205,7 @@ export default {
 
       this.filters.forEach((filter) => {
         let val = filter.val
-        if (!val) {
+        if (!val || val.lenght ===0) {
           return true
         }
 
@@ -223,7 +223,7 @@ export default {
             // filter value is list, at the same time not empty
             defaultFilterFunction = function(el, filter) {
               return filter.props.some(prop => {
-                return filter.value.indexOf(el[prop]) > -1
+                return filter.val.indexOf(el[prop]) > -1
               })
             }
           }
