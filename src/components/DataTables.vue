@@ -105,9 +105,7 @@ export default {
     },
     actionsColTitle: {
       type: String,
-      default() {
-        return 'Actions'
-      }
+      default: 'Actions'
     },
     checkboxFilterDef: {
       type: Object,
