@@ -58,7 +58,7 @@
       @current-change='handleCurrentRowChange',
       style='width: 100%')
       slot
-      el-table-column(label='操作',
+      el-table-column(:label='actionsColTitle',
         prop='innerRowActions',
         inline-template,
         v-if='hasActionCol',
@@ -101,6 +101,12 @@ export default {
       type: Object,
       default() {
         return {}
+      }
+    },
+    actionsColTitle: {
+      type: String,
+      default() {
+        return 'Actions'
       }
     },
     checkboxFilterDef: {
