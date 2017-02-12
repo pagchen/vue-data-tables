@@ -58,7 +58,7 @@
       @current-change='handleCurrentRowChange',
       style='width: 100%')
       slot
-      el-table-column(label='操作',
+      el-table-column(label='Actions',
         prop='innerRowActions',
         inline-template,
         v-if='hasActionCol',
